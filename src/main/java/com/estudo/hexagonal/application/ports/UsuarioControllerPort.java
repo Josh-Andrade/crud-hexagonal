@@ -11,4 +11,10 @@ public interface UsuarioControllerPort {
     ResponseEntity<UsuarioResponse> salvar(UsuarioRequest usuario);
 
     ResponseEntity<List<UsuarioResponse>> listar();
+
+    ResponseEntity<?> deletar(String id);
+
+    ResponseEntity<UsuarioResponse> buscarUsuario(String nome);
+
+    ResponseEntity<UsuarioResponse> atualizarUsuario(UsuarioRequest usuario, String id);
 }

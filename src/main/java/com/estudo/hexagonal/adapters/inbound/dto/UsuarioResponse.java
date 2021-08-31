@@ -2,10 +2,19 @@ package com.estudo.hexagonal.adapters.inbound.dto;
 
 public class UsuarioResponse {
 
+    private String id;
     private String nome;
     private Integer idade;
 
     public UsuarioResponse() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {

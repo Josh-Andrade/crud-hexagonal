@@ -7,7 +7,9 @@ import com.estudo.hexagonal.application.ports.UsuarioRepositoryPort;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -23,6 +25,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepositoryPort {
     }
 
     @Override
+    @Transactional
     public Usuario save(UsuarioEntity usuario) {
         return modelMapper.map(repository.save(usuario), Usuario.class);
     }
@@ -32,5 +35,21 @@ public class UsuarioRepositoryImpl implements UsuarioRepositoryPort {
         return repository.findAll().stream()
                 .map(usuarioEntity -> modelMapper.map(usuarioEntity, Usuario.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<UsuarioEntity> findByNome(String nome) {
+        return repository.findByNome(nome);
+    }
+
+    @Override
+    @Transactional
+    public void delete(UsuarioEntity entity) {
+        repository.delete(entity);
+    }
+
+    @Override
+    public Optional<UsuarioEntity> findById(String id) {
+        return repository.findById(id);
     }
 }

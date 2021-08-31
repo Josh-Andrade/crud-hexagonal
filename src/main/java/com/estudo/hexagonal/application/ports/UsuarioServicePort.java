@@ -9,5 +9,11 @@ public interface UsuarioServicePort {
 
     UsuarioResponse salvarUsuario(UsuarioRequest request);
 
-    List<UsuarioResponse> buscarUsuarios();
+    List<UsuarioResponse> listarUsuarios();
+
+    UsuarioResponse buscarUsuario(String nome);
+
+    void deletarUsuario(String id);
+
+    UsuarioResponse atualizarUsuario(UsuarioRequest request, String id);
 }
