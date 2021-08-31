@@ -1,7 +1,7 @@
 package com.estudo.hexagonal.adapters.inbound;
 
-import com.estudo.hexagonal.adapters.inbound.dto.UsuarioRequest;
-import com.estudo.hexagonal.adapters.inbound.dto.UsuarioResponse;
+import com.estudo.hexagonal.adapters.dto.UsuarioRequest;
+import com.estudo.hexagonal.adapters.dto.UsuarioResponse;
 import com.estudo.hexagonal.application.ports.UsuarioControllerPort;
 import com.estudo.hexagonal.application.ports.UsuarioServicePort;
 import org.springframework.http.ResponseEntity;
@@ -34,20 +34,20 @@ public class UsuarioControllerImpl implements UsuarioControllerPort {
 
     @Override
     @DeleteMapping("/deletar/{id}")
-    public ResponseEntity<?> deletar(@PathVariable String id) {
+    public ResponseEntity<?> deletar(@PathVariable String id) throws Throwable {
         usuarioService.deletarUsuario(id);
         return ResponseEntity.ok(null);
     }
 
     @Override
     @PutMapping("/atualizar/{id}")
-    public ResponseEntity<UsuarioResponse> atualizarUsuario(@RequestBody @Valid UsuarioRequest usuario, @PathVariable String id) {
+    public ResponseEntity<UsuarioResponse> atualizarUsuario(@RequestBody @Valid UsuarioRequest usuario, @PathVariable String id) throws Throwable {
         return ResponseEntity.ok(usuarioService.atualizarUsuario(usuario, id));
     }
 
     @Override
     @GetMapping("/buscar/{nome}")
-    public ResponseEntity<UsuarioResponse> buscarUsuario(@PathVariable String nome) {
+    public ResponseEntity<UsuarioResponse> buscarUsuario(@PathVariable String nome) throws Throwable {
         return ResponseEntity.ok(usuarioService.buscarUsuario(nome));
     }
 

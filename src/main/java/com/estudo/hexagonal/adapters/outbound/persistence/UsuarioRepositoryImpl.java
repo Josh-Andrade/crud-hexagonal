@@ -1,15 +1,16 @@
 package com.estudo.hexagonal.adapters.outbound.persistence;
 
-import com.estudo.hexagonal.adapters.inbound.dto.UsuarioResponse;
 import com.estudo.hexagonal.adapters.outbound.persistence.entities.UsuarioEntity;
 import com.estudo.hexagonal.application.domain.Usuario;
 import com.estudo.hexagonal.application.ports.UsuarioRepositoryPort;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Component
@@ -38,8 +39,8 @@ public class UsuarioRepositoryImpl implements UsuarioRepositoryPort {
     }
 
     @Override
-    public Optional<UsuarioEntity> findByNome(String nome) {
-        return repository.findByNome(nome);
+    public UsuarioEntity findByNome(String nome) throws Throwable {
+        return repository.findByNome(nome).orElseThrow((Supplier<Throwable>) () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
     }
 
     @Override
@@ -49,7 +50,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepositoryPort {
     }
 
     @Override
-    public Optional<UsuarioEntity> findById(String id) {
-        return repository.findById(id);
+    public UsuarioEntity findById(String id) throws Throwable {
+        return repository.findById(id).orElseThrow((Supplier<Throwable>) () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario não encontrado"));
     }
 }

@@ -4,7 +4,6 @@ import com.estudo.hexagonal.adapters.outbound.persistence.entities.UsuarioEntity
 import com.estudo.hexagonal.application.domain.Usuario;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UsuarioRepositoryPort {
 
@@ -12,10 +11,10 @@ public interface UsuarioRepositoryPort {
 
     List<Usuario> findAll();
 
-    Optional<UsuarioEntity> findByNome(String nome);
+    UsuarioEntity findByNome(String nome) throws Throwable;
 
     void delete(UsuarioEntity entity);
 
-    Optional<UsuarioEntity> findById(String id);
+    UsuarioEntity findById(String id) throws Throwable;
 
 }

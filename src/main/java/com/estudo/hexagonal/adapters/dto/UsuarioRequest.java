@@ -1,4 +1,4 @@
-package com.estudo.hexagonal.adapters.inbound.dto;
+package com.estudo.hexagonal.adapters.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;

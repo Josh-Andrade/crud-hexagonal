@@ -1,4 +1,4 @@
-package com.estudo.hexagonal.adapters.inbound.dto;
+package com.estudo.hexagonal.adapters.dto;
 
 public class UsuarioResponse {
 
