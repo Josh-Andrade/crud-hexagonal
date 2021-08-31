@@ -12,11 +12,6 @@ public class UsuarioRequest {
     @Positive
     private Integer idade;
 
-    public UsuarioRequest(String nome, Integer idade) {
-        this.nome = nome;
-        this.idade = idade;
-    }
-
     public String getNome() {
         return nome;
     }
