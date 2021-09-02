@@ -1,1 +1,1 @@
-# crud-hexagonal
+Implementação de um crud de usuario para estudo da arquitetura hexagonal
