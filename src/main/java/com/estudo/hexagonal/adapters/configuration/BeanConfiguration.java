@@ -1,8 +1,9 @@
 package com.estudo.hexagonal.adapters.configuration;
 
 import com.estudo.hexagonal.HexagonalApplication;
-import com.estudo.hexagonal.application.ports.UsuarioRepositoryPort;
-import com.estudo.hexagonal.application.services.UsuarioServiceImpl;
+import com.estudo.hexagonal.ports.UsuarioRepositoryPort;
+import com.estudo.hexagonal.services.KafkaConsumerImpl;
+import com.estudo.hexagonal.services.UsuarioServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,5 +21,10 @@ public class BeanConfiguration {
     @Bean
     ModelMapper modelMapper(){
         return new ModelMapper();
+    }
+
+    @Bean
+    KafkaConsumerImpl kafkaConsumer(UsuarioRepositoryPort repository, ModelMapper modelMapper){
+        return new KafkaConsumerImpl(repository, modelMapper);
     }
 }

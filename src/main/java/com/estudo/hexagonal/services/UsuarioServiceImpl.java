@@ -1,11 +1,11 @@
-package com.estudo.hexagonal.application.services;
+package com.estudo.hexagonal.services;
 
 import com.estudo.hexagonal.adapters.dto.UsuarioRequest;
 import com.estudo.hexagonal.adapters.dto.UsuarioResponse;
 import com.estudo.hexagonal.adapters.outbound.persistence.entities.UsuarioEntity;
-import com.estudo.hexagonal.application.domain.Usuario;
-import com.estudo.hexagonal.application.ports.UsuarioRepositoryPort;
-import com.estudo.hexagonal.application.ports.UsuarioServicePort;
+import com.estudo.hexagonal.domain.Usuario;
+import com.estudo.hexagonal.ports.UsuarioRepositoryPort;
+import com.estudo.hexagonal.ports.UsuarioServicePort;
 import org.modelmapper.ModelMapper;
 
 import javax.transaction.Transactional;
@@ -27,8 +27,7 @@ public class UsuarioServiceImpl implements UsuarioServicePort {
     public UsuarioResponse salvarUsuario(UsuarioRequest request) {
         Usuario domain = modelMapper.map(request, Usuario.class);
         domain.gerarId();
-        Usuario response = usuarioRepository.save(modelMapper.map(domain, UsuarioEntity.class));
-        return modelMapper.map(response, UsuarioResponse.class);
+        return modelMapper.map(usuarioRepository.save(modelMapper.map(domain, UsuarioEntity.class)), UsuarioResponse.class);
     }
 
     @Override

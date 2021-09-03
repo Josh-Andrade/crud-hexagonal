@@ -1,4 +1,4 @@
-package com.estudo.hexagonal.application.ports;
+package com.estudo.hexagonal.ports;
 
 import com.estudo.hexagonal.adapters.dto.UsuarioRequest;
 import com.estudo.hexagonal.adapters.dto.UsuarioResponse;

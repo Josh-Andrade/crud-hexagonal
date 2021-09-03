@@ -2,8 +2,8 @@ package com.estudo.hexagonal.adapters.inbound;
 
 import com.estudo.hexagonal.adapters.dto.UsuarioRequest;
 import com.estudo.hexagonal.adapters.dto.UsuarioResponse;
-import com.estudo.hexagonal.application.ports.UsuarioControllerPort;
-import com.estudo.hexagonal.application.ports.UsuarioServicePort;
+import com.estudo.hexagonal.ports.UsuarioControllerPort;
+import com.estudo.hexagonal.ports.UsuarioServicePort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

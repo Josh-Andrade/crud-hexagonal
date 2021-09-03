@@ -1,7 +1,7 @@
-package com.estudo.hexagonal.application.ports;
+package com.estudo.hexagonal.ports;
 
 import com.estudo.hexagonal.adapters.outbound.persistence.entities.UsuarioEntity;
-import com.estudo.hexagonal.application.domain.Usuario;
+import com.estudo.hexagonal.domain.Usuario;
 
 import java.util.List;
 

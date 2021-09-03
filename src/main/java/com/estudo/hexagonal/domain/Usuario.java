@@ -1,4 +1,4 @@
-package com.estudo.hexagonal.application.domain;
+package com.estudo.hexagonal.domain;
 
 import java.util.UUID;
 
@@ -36,4 +36,12 @@ public class Usuario {
         this.id = UUID.randomUUID().toString();
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", idade=" + idade +
+                '}';
+    }
 }

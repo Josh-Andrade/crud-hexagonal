@@ -1,8 +1,8 @@
 package com.estudo.hexagonal.adapters.outbound.persistence;
 
 import com.estudo.hexagonal.adapters.outbound.persistence.entities.UsuarioEntity;
-import com.estudo.hexagonal.application.domain.Usuario;
-import com.estudo.hexagonal.application.ports.UsuarioRepositoryPort;
+import com.estudo.hexagonal.domain.Usuario;
+import com.estudo.hexagonal.ports.UsuarioRepositoryPort;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
